@@ -8,7 +8,6 @@
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_jf1yx")]
 position = Vector2(-397, -73)
-motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(506, 180)
