@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mnn5g6w357kh"]
+[gd_scene load_steps=4 format=3 uid="uid://mnn5g6w357kh"]
 
 [ext_resource type="PackedScene" uid="uid://nie7s6lxy6mj" path="res://Player/Player.tscn" id="1_jf1yx"]
 [ext_resource type="AudioStream" uid="uid://cxic7tjfpwcht" path="res://Assets/Music/onlymp3.to-Zelda-_-Chill-_-Minuet-of-Forest-_Mikel-Lofi-Remix_-2LKLzLZfCWg-256k-1656789788888.ogg" id="2_avsyx"]
+[ext_resource type="PackedScene" uid="uid://de42f5ojp3ke0" path="res://World Objects/bamboo.tscn" id="3_lclw5"]
 
 [node name="World Map" type="Node2D"]
 
@@ -42,3 +43,9 @@ offset_bottom = -88.0
 stream = ExtResource("2_avsyx")
 autoplay = true
 mix_target = 2
+
+[node name="Testing Collision" type="Node2D" parent="."]
+position = Vector2(256, 95)
+
+[node name="Bamboo" parent="Testing Collision" instance=ExtResource("3_lclw5")]
+position = Vector2(0, 0)
