@@ -20,3 +20,5 @@ shape = SubResource("RectangleShape2D_w6a8a")
 position = Vector2(498.5, 176.5)
 scale = Vector2(117, 135)
 texture = SubResource("PlaceholderTexture2D_xgsr6")
+
+[node name="Timer" type="Timer" parent="."]
