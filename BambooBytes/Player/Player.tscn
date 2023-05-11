@@ -1,24 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://nie7s6lxy6mj"]
+[gd_scene load_steps=5 format=3 uid="uid://nie7s6lxy6mj"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_27exr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6a8a"]
-size = Vector2(114.5, 134)
+size = Vector2(135, 135)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xgsr6"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(61, 22)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m324q"]
+size = Vector2(79, 79)
+
+[node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_27exr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(498.75, 177)
 shape = SubResource("RectangleShape2D_w6a8a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(498.5, 176.5)
-scale = Vector2(117, 135)
+scale = Vector2(135, 135)
 texture = SubResource("PlaceholderTexture2D_xgsr6")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Chop_area" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chop_area"]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("RectangleShape2D_m324q")
+
+[node name="Panel" type="Panel" parent="Chop_area/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -39.5
+offset_right = 39.5
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2

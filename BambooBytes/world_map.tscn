@@ -6,37 +6,9 @@
 
 [node name="World Map" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_jf1yx")]
-position = Vector2(-397, -73)
+[node name="Player" parent="." instance=ExtResource("1_jf1yx")]
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(506, 180)
-
-[node name="Test Panels" type="Node2D" parent="."]
-
-[node name="Panel" type="Panel" parent="Test Panels"]
-offset_left = 323.0
-offset_top = 182.0
-offset_right = 363.0
-offset_bottom = 222.0
-
-[node name="Panel2" type="Panel" parent="Test Panels"]
-offset_left = 696.0
-offset_top = 285.0
-offset_right = 736.0
-offset_bottom = 325.0
-
-[node name="Panel3" type="Panel" parent="Test Panels"]
-offset_left = -397.0
-offset_top = 267.0
-offset_right = -357.0
-offset_bottom = 307.0
-
-[node name="Panel4" type="Panel" parent="Test Panels"]
-offset_left = -372.0
-offset_top = -128.0
-offset_right = -332.0
-offset_bottom = -88.0
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_avsyx")
@@ -44,7 +16,19 @@ autoplay = true
 mix_target = 2
 
 [node name="Testing Collision" type="Node2D" parent="."]
-position = Vector2(256, 95)
+position = Vector2(541, 60)
 
 [node name="Bamboo" parent="Testing Collision" instance=ExtResource("3_lclw5")]
-position = Vector2(0, 0)
+position = Vector2(-105, -110)
+
+[node name="Bamboo2" parent="Testing Collision" instance=ExtResource("3_lclw5")]
+position = Vector2(429, 58)
+
+[node name="Bamboo3" parent="Testing Collision" instance=ExtResource("3_lclw5")]
+position = Vector2(176, 104)
+
+[node name="Bamboo4" parent="Testing Collision" instance=ExtResource("3_lclw5")]
+position = Vector2(261, -193)
+
+[node name="Bamboo5" parent="Testing Collision" instance=ExtResource("3_lclw5")]
+position = Vector2(73, -187)
