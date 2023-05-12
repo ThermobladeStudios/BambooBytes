@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://de42f5ojp3ke0"]
+[gd_scene load_steps=6 format=3 uid="uid://de42f5ojp3ke0"]
 
 [ext_resource type="Texture2D" uid="uid://lv573eiicqpt" path="res://icon.svg" id="1_4pjnd"]
 [ext_resource type="Script" path="res://World Objects/bamboo.gd" id="1_lu5k4"]
+[ext_resource type="Theme" uid="uid://dmpocjixr1jt6" path="res://Theme/BambooBytes.tres" id="3_pao7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbx12"]
 size = Vector2(127, 127)
@@ -9,42 +10,32 @@ size = Vector2(127, 127)
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3f4a"]
 radius = 91.022
 
-[sub_resource type="Theme" id="Theme_n3lqq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8c0h"]
-bg_color = Color(0.662745, 0.560784, 0.678431, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0ucb"]
-bg_color = Color(0, 0.717647, 0.4, 1)
-
 [node name="Bamboo" type="StaticBody2D"]
-position = Vector2(22, 11)
 script = ExtResource("1_lu5k4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(62.5, 3.5)
 shape = SubResource("RectangleShape2D_mbx12")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(63, 4)
 texture = ExtResource("1_4pjnd")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(63, 2)
 shape = SubResource("CircleShape2D_a3f4a")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="ChopProgress" type="ProgressBar" parent="."]
-offset_left = -50.0
-offset_top = -89.0
-offset_right = 175.0
-offset_bottom = -62.0
-theme = SubResource("Theme_n3lqq")
-theme_override_styles/background = SubResource("StyleBoxFlat_j8c0h")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g0ucb")
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = -85.0
+offset_right = 75.0
+offset_bottom = -75.0
+grow_horizontal = 2
+theme = ExtResource("3_pao7u")
 value = 50.0
 show_percentage = false
 
