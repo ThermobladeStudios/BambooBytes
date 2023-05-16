@@ -27,7 +27,7 @@ shape = SubResource("CircleShape2D_a3f4a")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="ChopProgress" type="ProgressBar" parent="."]
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -75.0

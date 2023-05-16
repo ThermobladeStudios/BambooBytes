@@ -11,7 +11,7 @@
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Control" parent="Player/Camera2D" instance=ExtResource("4_ikdba")]
+[node name="GUI" parent="Player/Camera2D" instance=ExtResource("4_ikdba")]
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0

@@ -22,6 +22,9 @@ scale = Vector2(135, 135)
 texture = SubResource("PlaceholderTexture2D_xgsr6")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+
+[node name="DashCooldown" type="Timer" parent="."]
 
 [node name="Chop_area" type="Area2D" parent="."]
 light_mask = 2
@@ -44,3 +47,6 @@ offset_right = 39.5
 offset_bottom = 39.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
