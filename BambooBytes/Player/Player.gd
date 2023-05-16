@@ -10,7 +10,7 @@ func _physics_process(delta):
 	if(input_direction != Vector2.ZERO):
 		collision.position = input_direction * 125
 	
-	if(Input.is_action_pressed("Sprint")):
+	if(Input.is_action_pressed("Sprint")):	
 		speed=1000
 
 	elif(Input.is_action_just_released):
