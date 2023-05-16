@@ -19,22 +19,25 @@ var growthbar = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bar.max_value = totalTime
-	currTime = 0
+	currTime = totalTime
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	bar.value = currTime
-	if(currTime >= totalTime):
+	if(currTime == totalTime):
+		bar.visible=false
+	else:
+		bar.visible = true
+	if(currTime <= 0 && tree_is_chopped == false):
 		treesprite.visible = false
-		currTime = 0
+		currTime = growthbar
 		tree_is_chopped = true
 		regrow.start()
 
 
 func _on_area_2d_area_entered(body):
 	x+=1
-
 	if(x != 0):
 		timer.start()
 
@@ -49,7 +52,7 @@ func upgrade_drop():
 
 func _on_timer_timeout():
 	if(tree_is_chopped == false):
-		currTime += Player.strength*(x)
+		currTime -= Player.strength*(x)
 		print(currTime)
 		var tween = get_tree().create_tween()
 		tween.tween_property(bar, "value", currTime, 0.4).set_trans(Tween.TRANS_LINEAR)
@@ -57,6 +60,7 @@ func _on_timer_timeout():
 
 func _on_regrow_timeout():
 	growthbar += 1*regrowRate
+	currTime = growthbar
 	if(growthbar >= totalTime):
 		growthbar = 0
 		treesprite.visible = true
