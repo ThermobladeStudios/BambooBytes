@@ -27,19 +27,19 @@ offset_bottom = 540.0
 position = Vector2(541, 60)
 
 [node name="Bamboo" parent="Bamboos" instance=ExtResource("3_lclw5")]
-position = Vector2(-105, -110)
+position = Vector2(-433, -311)
 
 [node name="Bamboo2" parent="Bamboos" instance=ExtResource("3_lclw5")]
-position = Vector2(429, 58)
+position = Vector2(-18, -269)
 
 [node name="Bamboo3" parent="Bamboos" instance=ExtResource("3_lclw5")]
-position = Vector2(176, 104)
+position = Vector2(-553, 171)
 
 [node name="Bamboo4" parent="Bamboos" instance=ExtResource("3_lclw5")]
-position = Vector2(261, -193)
+position = Vector2(-814, -294)
 
 [node name="Bamboo5" parent="Bamboos" instance=ExtResource("3_lclw5")]
-position = Vector2(73, -187)
+position = Vector2(58, 177)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_avsyx")
