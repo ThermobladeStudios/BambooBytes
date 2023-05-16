@@ -8,6 +8,7 @@ extends CharacterBody2D
 var strength = 5
 var Dashing = false
 var DashCooldown = false
+var DashDirection
 
 func _physics_process(delta):
 	
@@ -16,13 +17,15 @@ func _physics_process(delta):
 	if input_direction != Vector2.ZERO and !Dashing:
 		collision.position = input_direction * 125
 		
-	if Input.is_action_pressed("Dash") and !DashCooldown:
+	if Input.is_action_pressed("Dash") and !DashCooldown and input_direction != Vector2.ZERO:
 		Dashing = true
 		DashCooldown = true
+		DashDirection = input_direction
 		$Timer.start(0.15)
 		$DashCooldown.start(1)
 		
 	if Dashing:
+		input_direction = DashDirection
 		input_direction *= DashMultiplier
 
 	velocity = input_direction * speed
