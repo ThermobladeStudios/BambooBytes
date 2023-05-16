@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://qao2030pgiqi"]
+[gd_scene load_steps=3 format=3 uid="uid://qao2030pgiqi"]
 
+[ext_resource type="Script" path="res://BambooCount.gd" id="2_7w5bt"]
 [ext_resource type="Theme" uid="uid://dmpocjixr1jt6" path="res://Theme/BambooBytes.tres" id="2_mcmdj"]
 
 [node name="GUI" type="Control"]
@@ -21,8 +22,9 @@ offset_right = 300.0
 offset_bottom = -50.0
 grow_horizontal = 0
 theme = ExtResource("2_mcmdj")
-text = "123"
+text = "1"
 vertical_alignment = 1
+script = ExtResource("2_7w5bt")
 
 [node name="InfoPanel" type="Panel" parent="."]
 layout_mode = 0

@@ -12,6 +12,8 @@ radius = 91.022
 
 [node name="Bamboo" type="StaticBody2D"]
 script = ExtResource("1_lu5k4")
+DroppedAmmount = 4
+regrowRate = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mbx12")

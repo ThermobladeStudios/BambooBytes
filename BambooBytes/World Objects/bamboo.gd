@@ -4,9 +4,9 @@ var totalTime = 20
 var currTime
 var ischopping = false
 var x = 0
-var DroppedAmmount = 1
+@export var DroppedAmmount : int
 
-var regrowRate = 5
+@export var regrowRate = 5
 var tree_is_chopped = false
 
 var growthbar = 0
@@ -16,6 +16,9 @@ var growthbar = 0
 @onready var timer = $Timer
 @onready var regrow = $Regrow
 @onready var bar = $ChopProgress
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bar.max_value = totalTime
@@ -27,10 +30,12 @@ func _process(delta):
 	bar.value = currTime
 	if(currTime == totalTime):
 		bar.visible=false
-	else:
+	elif(currTime <= totalTime && tree_is_chopped == false):
 		bar.visible = true
 	if(currTime <= 0 && tree_is_chopped == false):
+		PInven.addBamboo(DroppedAmmount)
 		treesprite.visible = false
+		bar.visible = false
 		currTime = growthbar
 		tree_is_chopped = true
 		regrow.start()
