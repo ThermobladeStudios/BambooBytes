@@ -1,14 +1,20 @@
 extends CharacterBody2D
 
+@onready var collisionShape = $Chop_area/CollisionShape2D
 @onready var collision = $Chop_area
 @export var speed = 500
 @export var DashTime = 0.15
 @export var DashMultiplier = 5
 
-var strength = 5
+
+@export var hitarea = 0
+@export var strength = 5
 var Dashing = false
 var DashCooldown = false
 var DashDirection
+
+func _ready():
+	collisionShape.transforms
 
 func _physics_process(delta):
 	
@@ -30,6 +36,11 @@ func _physics_process(delta):
 
 	velocity = input_direction * speed
 	move_and_slide()
+
+
+
+
+
 
 func _on_timer_timeout():
 	Dashing = false

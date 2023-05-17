@@ -13,6 +13,7 @@ size = Vector2(300, 300)
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_27exr")
+hitarea = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w6a8a")
