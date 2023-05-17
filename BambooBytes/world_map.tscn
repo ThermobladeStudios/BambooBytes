@@ -41,6 +41,9 @@ position = Vector2(-814, -294)
 [node name="Bamboo5" parent="Bamboos" instance=ExtResource("3_lclw5")]
 position = Vector2(58, 177)
 
+[node name="Bamboo6" parent="Bamboos" instance=ExtResource("3_lclw5")]
+position = Vector2(-241, 221)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_avsyx")
 autoplay = true
