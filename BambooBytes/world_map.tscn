@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://mnn5g6w357kh"]
+[gd_scene load_steps=7 format=3 uid="uid://mnn5g6w357kh"]
 
 [ext_resource type="PackedScene" uid="uid://nie7s6lxy6mj" path="res://Player/Player.tscn" id="1_jf1yx"]
 [ext_resource type="Script" path="res://world_map.gd" id="1_y8ul0"]
 [ext_resource type="AudioStream" uid="uid://cxic7tjfpwcht" path="res://Assets/Music/onlymp3.to-Zelda-_-Chill-_-Minuet-of-Forest-_Mikel-Lofi-Remix_-2LKLzLZfCWg-256k-1656789788888.ogg" id="2_avsyx"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="3_cq2x7"]
 [ext_resource type="PackedScene" uid="uid://de42f5ojp3ke0" path="res://World Objects/bamboo.tscn" id="3_lclw5"]
 [ext_resource type="PackedScene" uid="uid://qao2030pgiqi" path="res://GUI.tscn" id="4_ikdba"]
 
@@ -12,6 +13,7 @@ script = ExtResource("1_y8ul0")
 [node name="Player" parent="." instance=ExtResource("1_jf1yx")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+script = ExtResource("3_cq2x7")
 
 [node name="GUI" parent="Player/Camera2D" instance=ExtResource("4_ikdba")]
 z_index = 1
