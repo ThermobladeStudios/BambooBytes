@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mnn5g6w357kh"]
+[gd_scene load_steps=8 format=3 uid="uid://mnn5g6w357kh"]
 
 [ext_resource type="PackedScene" uid="uid://nie7s6lxy6mj" path="res://Player/Player.tscn" id="1_jf1yx"]
 [ext_resource type="Script" path="res://world_map.gd" id="1_y8ul0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Camera2D.gd" id="3_cq2x7"]
 [ext_resource type="PackedScene" uid="uid://de42f5ojp3ke0" path="res://World Objects/bamboo.tscn" id="3_lclw5"]
 [ext_resource type="PackedScene" uid="uid://qao2030pgiqi" path="res://GUI.tscn" id="4_ikdba"]
+[ext_resource type="PackedScene" uid="uid://btwvgtdv70trh" path="res://World Objects/Shop.tscn" id="7_cka38"]
 
 [node name="World Map" type="Node2D"]
 script = ExtResource("1_y8ul0")
@@ -38,13 +39,16 @@ position = Vector2(-18, -269)
 position = Vector2(-553, 171)
 
 [node name="Bamboo4" parent="Bamboos" instance=ExtResource("3_lclw5")]
-position = Vector2(-814, -294)
+position = Vector2(-766, -306)
 
 [node name="Bamboo5" parent="Bamboos" instance=ExtResource("3_lclw5")]
 position = Vector2(58, 177)
 
 [node name="Bamboo6" parent="Bamboos" instance=ExtResource("3_lclw5")]
 position = Vector2(-241, 221)
+
+[node name="Shop" parent="." instance=ExtResource("7_cka38")]
+position = Vector2(-527, -10)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_avsyx")

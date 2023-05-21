@@ -34,7 +34,7 @@ func _process(delta):
 		bar.visible = true
 	if(currTime <= 0 && tree_is_chopped == false):
 		PInven.addBamboo(DroppedAmmount)
-		treesprite.visible = false
+		treesprite.frame = 0
 		bar.visible = false
 		currTime = growthbar
 		tree_is_chopped = true
@@ -64,6 +64,6 @@ func _on_regrow_timeout():
 	currTime = growthbar
 	if(growthbar >= totalTime):
 		growthbar = 0
-		treesprite.visible = true
+		treesprite.frame = 1
 		tree_is_chopped = false
 		regrow.stop()

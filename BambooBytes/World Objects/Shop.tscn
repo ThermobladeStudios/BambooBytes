@@ -1,20 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://btwvgtdv70trh"]
+[gd_scene load_steps=6 format=3 uid="uid://btwvgtdv70trh"]
+
+[ext_resource type="Script" path="res://World Objects/Shop.gd" id="1_x215v"]
+[ext_resource type="Texture2D" uid="uid://dwftjdv4dx547" path="res://Assets/ShopUItest1.png" id="2_3dwwr"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iq6rd"]
 size = Vector2(10, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nho8"]
-size = Vector2(6.25, 11)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bye3g"]
 size = Vector2(14, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nho8"]
+size = Vector2(8.40239, 13.8992)
+
 [node name="StaticBody2D" type="StaticBody2D"]
+scale = Vector2(8.05803, 8.05803)
+script = ExtResource("1_x215v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6.4075e-07, 6.4075e-07)
 scale = Vector2(1.4, 1.4)
 texture = SubResource("PlaceholderTexture2D_iq6rd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bye3g")
 
 [node name="Area2D" type="Area2D" parent="."]
 light_mask = 2
@@ -23,8 +31,51 @@ visibility_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(10, 0)
+position = Vector2(11.6836, -2.36702e-07)
 shape = SubResource("RectangleShape2D_8nho8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_bye3g")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -34.0
+offset_right = 248.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Button 1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Button 2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Button 3"
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Button 4"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer"]
+z_index = -1
+position = Vector2(255, 99.0001)
+scale = Vector2(2.42915, 2.42915)
+texture = ExtResource("2_3dwwr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
