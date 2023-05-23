@@ -1,5 +1,5 @@
 extends StaticBody2D
-@onready var shopui = $CanvasLayer
+@onready var shopui = $Shop_ui/CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
