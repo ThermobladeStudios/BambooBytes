@@ -13,10 +13,8 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	print(1)
 	shopui.show()
 
 
 func _on_area_2d_body_exited(body):
-	print(2)
 	shopui.hide()

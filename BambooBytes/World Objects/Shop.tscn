@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://btwvgtdv70trh"]
 
 [ext_resource type="Script" path="res://World Objects/Shop.gd" id="1_x215v"]
-[ext_resource type="PackedScene" uid="uid://dttqpny7t4nhn" path="res://shop_ui.tscn" id="2_udxtx"]
+[ext_resource type="PackedScene" uid="uid://dttqpny7t4nhn" path="res://Store/shop_ui.tscn" id="2_udxtx"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iq6rd"]
 size = Vector2(10, 10)

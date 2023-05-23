@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://dttqpny7t4nhn"]
+
+[ext_resource type="Texture2D" uid="uid://dwftjdv4dx547" path="res://Assets/ShopUItest1.png" id="1_0gsdi"]
+[ext_resource type="Script" path="res://Store/shop_ui.gd" id="1_2ikkr"]
+[ext_resource type="PackedScene" uid="uid://cb6o6txsuqg53" path="res://Store/ShopButtons.tscn" id="2_d2gnq"]
+
+[node name="Shop_ui" type="Control"]
+layout_mode = 3
+anchor_left = 0.622
+anchor_top = 0.728
+anchor_right = 0.622
+anchor_bottom = 0.728
+offset_left = -716.544
+offset_top = -468.744
+offset_right = 717.456
+offset_bottom = 475.256
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ikkr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(376, 117)
+scale = Vector2(4.41667, 4.2)
+texture = ExtResource("1_0gsdi")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Sprite2D"]
+custom_minimum_size = Vector2(400, 325)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -29.0
+offset_right = 287.0
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.276152, 0.276152)
+theme_override_constants/separation = 25
+
+[node name="SBut" parent="CanvasLayer/Sprite2D/VBoxContainer" instance=ExtResource("2_d2gnq")]
+layout_mode = 2
+text = "Strength +1"
+
+[node name="Rbut" parent="CanvasLayer/Sprite2D/VBoxContainer" instance=ExtResource("2_d2gnq")]
+layout_mode = 2
+text = "Area +1"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Sprite2D"]
+custom_minimum_size = Vector2(400, 325)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_right = 400.0
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.275868, 0.275868)
+theme_override_constants/separation = 25
+
+[node name="RBamboo" parent="CanvasLayer/Sprite2D/VBoxContainer2" instance=ExtResource("2_d2gnq")]
+layout_mode = 2
+text = "Increase Regrowth Rate"
+
+[node name="1Bamboo" parent="CanvasLayer/Sprite2D/VBoxContainer2" instance=ExtResource("2_d2gnq")]
+layout_mode = 2
+text = "+1 Bamboo"
+
+[connection signal="pressed" from="CanvasLayer/Sprite2D/VBoxContainer/SBut" to="." method="_on_s_but_pressed"]
+[connection signal="pressed" from="CanvasLayer/Sprite2D/VBoxContainer/Rbut" to="." method="_on_rbut_pressed"]
+[connection signal="pressed" from="CanvasLayer/Sprite2D/VBoxContainer2/RBamboo" to="." method="_on_r_bamboo_pressed"]
+[connection signal="pressed" from="CanvasLayer/Sprite2D/VBoxContainer2/1Bamboo" to="." method="_on_1_bamboo_pressed"]

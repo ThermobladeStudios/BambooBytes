@@ -6,13 +6,11 @@ var ischopping = false
 var x = false
 @export var DroppedAmmount : int
 
-@export var regrowRate = 5
 var tree_is_chopped = false
 
 var growthbar = 0
 
 @onready var treesprite = $Sprite2D
-@onready var Player = $"../../Player"
 @onready var timer = $Timer
 @onready var regrow = $Regrow
 @onready var bar = $ChopProgress
@@ -21,6 +19,7 @@ var growthbar = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	position = Vector2(randi_range(-1000, 1000), randi_range(-100,-1200))
 	bar.max_value = totalTime
 	currTime = totalTime
 
@@ -38,11 +37,13 @@ func _process(delta):
 		bar.visible = false
 		currTime = growthbar
 		tree_is_chopped = true
+		position = Vector2(randi_range(-1000, 1000), randi_range(-100,-1200))
+		
 		regrow.start()
 	if(x):
 		if(Input.is_action_just_pressed("Attack")):
 			if(tree_is_chopped == false):
-				currTime -= Player.strength
+				currTime -= PInven.Strength
 				print(currTime)
 				var tween = get_tree().create_tween()
 				tween.tween_property(bar, "value", currTime, 0.4).set_trans(Tween.TRANS_QUAD)
@@ -60,7 +61,7 @@ func upgrade_drop():
 
 
 func _on_regrow_timeout():
-	growthbar += 1*regrowRate
+	growthbar += PInven.regrowRate
 	currTime = growthbar
 	if(growthbar >= totalTime):
 		growthbar = 0
