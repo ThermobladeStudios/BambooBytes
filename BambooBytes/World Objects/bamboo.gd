@@ -37,7 +37,7 @@ func _process(delta):
 		bar.visible = false
 		currTime = growthbar
 		tree_is_chopped = true
-		position = Vector2(randi_range(-1000, 1000), randi_range(-100,-1200))
+		position = Vector2(randi_range(-1000,1000), randi_range(-100,-1200))
 		
 		regrow.start()
 	if(x):
