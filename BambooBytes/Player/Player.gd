@@ -13,19 +13,29 @@ extends CharacterBody2D
 var Dashing = false
 var DashCooldown = false
 var DashDirection
+var direction_to_mouse 
 
+
+var isChop = false
 
 func _physics_process(delta):
+	
 	var hitarea = PInven.range
 	var strength = PInven.Strength
+	
 	collisionShape.shape.size = Vector2(hitarea,hitarea)
-	var direction_to_mouse = self.position.direction_to(get_global_mouse_position())
+	direction_to_mouse = self.position.direction_to(get_global_mouse_position())
 
 	var input_direction = Vector2(Input.get_action_strength("Right") - Input.get_action_strength("Left") , Input.get_action_strength("Down") - Input.get_action_strength("Up")).normalized()
 	update_animation_parameters(input_direction)
 		
-	collision.position = direction_to_mouse*($CollisionShape2D.shape.size)/2+ direction_to_mouse*(collisionShape.shape.size/2)
-		
+	collision.position = direction_to_mouse*($CollisionShape2D.shape.size)/2 + direction_to_mouse*(collisionShape.shape.size/2)
+	animation_tree.set("parameters/Chop2/blend_position", direction_to_mouse)
+
+
+
+	
+	
 	if Input.is_action_pressed("Dash") and !DashCooldown and input_direction != Vector2.ZERO:
 		Dashing = true
 		DashCooldown = true
@@ -39,7 +49,10 @@ func _physics_process(delta):
 
 	velocity = input_direction * speed
 	move_and_slide()
+	if(Input.is_action_pressed("Attack")):
+		isChop = true
 	pick_new_state()
+
 
 
 
@@ -48,14 +61,27 @@ func update_animation_parameters(move_input : Vector2):
 		animation_tree.set("parameters/Idle/blend_position", move_input)
 		animation_tree.set("parameters/Walk/blend_position", move_input)
 
-func pick_new_state():
-	if(velocity != Vector2.ZERO):
-		state_machine.travel("Walk")
-	elif(velocity == Vector2.ZERO):
-		state_machine.travel("Idle")
 		
+func pick_new_state():
+	if(isChop == true):
+		
+		state_machine.travel("Chop2")
+
+	else:	
+		if(velocity != Vector2.ZERO):
+			state_machine.travel("Walk")
+
+		elif(velocity == Vector2.ZERO):
+			state_machine.travel("Idle")
+	
+
+	
 func _on_timer_timeout():
 	Dashing = false
 
 func _on_dash_cooldown_timeout():
 	DashCooldown = false
+	
+func _on_chop_timeout():
+	print(1)
+	isChop = false

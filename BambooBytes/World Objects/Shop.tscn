@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://btwvgtdv70trh"]
+[gd_scene load_steps=7 format=3 uid="uid://btwvgtdv70trh"]
 
 [ext_resource type="Script" path="res://World Objects/Shop.gd" id="1_x215v"]
+[ext_resource type="Texture2D" uid="uid://pi3bquml2dui" path="res://Assets/Art/shop1.png" id="2_6u7bu"]
 [ext_resource type="PackedScene" uid="uid://dttqpny7t4nhn" path="res://Store/shop_ui.tscn" id="2_udxtx"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iq6rd"]
-size = Vector2(10, 10)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bye3g"]
-size = Vector2(14, 14)
+size = Vector2(83.8915, 66.4438)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf5q4"]
+size = Vector2(48.7191, 17.9945)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nho8"]
-size = Vector2(8.40239, 13.8992)
+size = Vector2(38.3286, 13.8992)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 scale = Vector2(8.05803, 8.05803)
@@ -19,10 +20,15 @@ script = ExtResource("1_x215v")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6.4075e-07, 6.4075e-07)
 scale = Vector2(1.4, 1.4)
-texture = SubResource("PlaceholderTexture2D_iq6rd")
+texture = ExtResource("2_6u7bu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.372298, -5.67174)
 shape = SubResource("RectangleShape2D_bye3g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(20.1923, 25.7507)
+shape = SubResource("RectangleShape2D_rf5q4")
 
 [node name="Area2D" type="Area2D" parent="."]
 light_mask = 2
@@ -31,7 +37,7 @@ visibility_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(11.6836, -2.36702e-07)
+position = Vector2(-23.8272, 35.1202)
 shape = SubResource("RectangleShape2D_8nho8")
 
 [node name="Shop_ui" parent="." instance=ExtResource("2_udxtx")]

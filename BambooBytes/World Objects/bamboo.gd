@@ -38,8 +38,8 @@ func _process(delta):
 		currTime = growthbar
 		tree_is_chopped = true
 		position = Vector2(randi_range(-1000,1000), randi_range(-100,-1200))
-		
 		regrow.start()
+		
 	if(x):
 		if(Input.is_action_just_pressed("Attack")):
 			if(tree_is_chopped == false):
@@ -47,13 +47,13 @@ func _process(delta):
 				print(currTime)
 				var tween = get_tree().create_tween()
 				tween.tween_property(bar, "value", currTime, 0.4).set_trans(Tween.TRANS_QUAD)
+
 func _on_area_2d_area_entered(body):
 	x= true
 
-	
 
 func _on_area_2d_area_exited(body):
-	x=0
+	x = 0
 
 func upgrade_drop():
 	DroppedAmmount +=1
