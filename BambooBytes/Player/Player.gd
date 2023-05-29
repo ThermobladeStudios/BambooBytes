@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var collisionShape = $Chop_area/CollisionShape2D
+@onready var collisionShape = $Chop_area/SemiCircle
 @onready var collision = $Chop_area
 
 @export var speed = 500
@@ -23,13 +23,13 @@ func _physics_process(delta):
 	var hitarea = PInven.range
 	var strength = PInven.Strength
 	
-	collisionShape.shape.size = Vector2(hitarea,hitarea)
+	collisionShape.scale = Vector2(hitarea,hitarea)
 	direction_to_mouse = self.position.direction_to(get_global_mouse_position())
 
 	var input_direction = Vector2(Input.get_action_strength("Right") - Input.get_action_strength("Left") , Input.get_action_strength("Down") - Input.get_action_strength("Up")).normalized()
 	update_animation_parameters(input_direction)
 		
-	collision.position = direction_to_mouse*($CollisionShape2D.shape.size)/2 + direction_to_mouse*(collisionShape.shape.size/2)
+	collision.position = direction_to_mouse*($CollisionShape2D.shape.size)/2 + direction_to_mouse*(collisionShape.scale/2)
 	animation_tree.set("parameters/Chop2/blend_position", direction_to_mouse)
 
 
