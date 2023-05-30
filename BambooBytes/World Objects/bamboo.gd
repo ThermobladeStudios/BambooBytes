@@ -37,7 +37,8 @@ func _process(delta):
 		bar.visible = false
 		currTime = growthbar
 		tree_is_chopped = true
-		position = Vector2(randi_range(-1000,1000), randi_range(-100,-1200))
+		position = Vector2(0,0)
+		#Vector2(randi_range(-1000,1000), randi_range(-100,-1200))
 		regrow.start()
 		
 	if(x):
@@ -49,7 +50,8 @@ func _process(delta):
 				tween.tween_property(bar, "value", currTime, 0.4).set_trans(Tween.TRANS_QUAD)
 
 func _on_area_2d_area_entered(body):
-	x= true
+	if(body == $"/root/World Map/Player/Chop_area"):
+		x= true
 
 
 func _on_area_2d_area_exited(body):
