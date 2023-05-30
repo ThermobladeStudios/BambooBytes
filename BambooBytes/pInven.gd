@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var bamboocount = 0
 @onready var Strength = 5
-@onready var range = 135
+@onready var range = 0.1
 @onready var regrowRate = 5
 
 @onready var isbamboo = false

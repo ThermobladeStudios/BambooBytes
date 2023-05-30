@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pi3bquml2dui"
-path="res://.godot/imported/shop1.png-85a1e8096594e9ebd2baaddac110c39e.ctex"
+uid="uid://cpyib35vp1ub5"
+path="res://.godot/imported/Semicircle_(PSF).png-18aa82f01ecb038c41d8c9d1fe83a522.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/shop1.png"
-dest_files=["res://.godot/imported/shop1.png-85a1e8096594e9ebd2baaddac110c39e.ctex"]
+source_file="res://Assets/Hitboxes/Semicircle_(PSF).png"
+dest_files=["res://.godot/imported/Semicircle_(PSF).png-18aa82f01ecb038c41d8c9d1fe83a522.ctex"]
 
 [params]
 
